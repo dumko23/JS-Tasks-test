@@ -16,22 +16,27 @@ const array = [1, 2, 3];
 // Решение
 
 function forEach(array, callback){
+    let newArray = [];
     if(!Array.isArray(array)){
         throw new Error('First argument should be an Array');
     } else if(!typeof callback === 'function'){
         throw new Error('Second argument should be a Function');
     } else {
         let len = array.length;
+       
         for (let i = 0; i < len; i++){
-            callback(array[i], i, array);
+            
+            newArray.push(callback(array[i], i, array));
         }
     }
+    return console.log(newArray); 
 }
 
 const result = forEach(array, function (item, index, arrayRef) {
     console.log(item); // элемент массива
     console.log(index); // индекс элемента
     console.log(arrayRef); // ссылка на обрабатываемый массив
+    return item * 2; // some actions with 'item'
 });
 
 console.log(result); // undefined
