@@ -9,4 +9,4 @@ for (let i = 0; n > minValue; i++){
     n = n / 2; 
     num++
 }
-console.log(n); //31.25
+console.log(n, num); //31.25
