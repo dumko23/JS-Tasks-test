@@ -8,6 +8,7 @@ let result = null;
 //     result = false;
 // }
 
+//Перепишите код, заменив оператор `if` на тернарный оператор `?`
 result = (a + b < 4)? true : false;
 
 console.log(result);
