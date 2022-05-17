@@ -8,11 +8,25 @@
  * Если rate не установлен — возвращаем число 0.
  */
 
-const person = {};
+const person = {
+    get salary(){
+        let date = new Date();
+        if(!this.rate){
+            return console.log(0);
+        } else {
+            return console.log(this.rate * date.getDate());
+        }
+    }
+};
 
 // Решение
+let descriptors = Object.getOwnPropertyDescriptors(person);
 
+descriptors.salary.writable = false;
 
+Object.defineProperties(person,{
+    rate: { writable: true, enumerable: false, configurable: false },
+})
 
 person.rate = 30;
 
