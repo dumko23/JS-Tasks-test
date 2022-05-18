@@ -16,17 +16,18 @@ const array = [1, 2, 3, 4, 5, 6];
 // Решение
 
 function every(array, callback) {
-    if (!Array.isArray(array)) {
+    if (arguments.length < 2) {
+        throw new Error('Function should take 2 arguments');
+    } else if (!Array.isArray(array)) {
         throw new Error('First argument should be an Array');
     } else if (!typeof callback === 'function') {
         throw new Error('Second argument should be a Function');
-    } else {
-        let len = array.length;
+    }
+    let len = array.length;
 
-        for (let i = 0; i < len; i++) {
-            if (!callback(array[i], i, array)) {
-                return false;
-            }
+    for (let i = 0; i < len; i++) {
+        if (!callback(array[i], i, array)) {
+            return false;
         }
     }
     return true;
@@ -43,3 +44,4 @@ const result = every(array, function (item, i, arrayRef) {
 console.log(result); // true
 
 exports.every = every;
+
