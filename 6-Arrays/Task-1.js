@@ -29,7 +29,7 @@ function forEach(array, callback){
             newArray.push(callback(array[i], i, array));
         }
     }
-    return console.log(newArray); 
+    return newArray; 
 }
 
 const result = forEach(array, function (item, index, arrayRef) {
