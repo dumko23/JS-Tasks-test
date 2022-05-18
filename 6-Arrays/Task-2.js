@@ -18,7 +18,7 @@ const array = ['Доброе утро!', 'Добрый вечер!', 3, 512, '#'
 function filter(array, callback){
     
 
-    if (arguments.length < 2) {
+    if (!(arguments.length === 2)) {
         throw new Error('Function should take 2 arguments');
     } else if (!Array.isArray(array)) {
         throw new Error('First argument should be an Array');

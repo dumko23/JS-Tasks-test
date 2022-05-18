@@ -18,7 +18,7 @@ const INITIAL_ACCUMULATOR = 6;
 // Решение
 
 function reduce(array, callback, accumulator) {
-    if (arguments.length < 3) {
+    if (!(arguments.length === 3)) {
         throw new Error('Function should take 3 arguments');
     } else if (!Array.isArray(array)) {
         throw new Error('First argument should be an Array');
