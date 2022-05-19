@@ -26,8 +26,8 @@ function shallowMerge(firstObj, secondObj){
 const user = { firstName: 'Marcus', lastName: 'Kronenberg' };
 const userData = { job: 'developer', country: 'Germany', lastName: 'Schmidt' };
 
-Object.defineProperty(user, 'firstName', { writable: false });
-Object.defineProperty(userData, 'job', { configurable: false });
+Object.defineProperty(user, 'firstName', { writable: false, enumerable: false });
+Object.defineProperty(userData, 'job', { configurable: false, enumerable: false });
 
 const result = shallowMerge(user, userData);
 
