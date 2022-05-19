@@ -34,9 +34,10 @@ function compose(...args) {
     }
     let len = args.length;
     
-    let func = function(arg){
+    
+    return function (arg) {
         let result = arg;
-        for( let i = len-1; i >= 0; i--){
+        for (let i = len - 1; i >= 0; i--) {
             if (args[i]() === undefined) {
                 throw new Error('Every function should return some value');
             } else {
@@ -44,8 +45,7 @@ function compose(...args) {
             }
         }
         return result;
-    }
-    return func;
+    };
 }
 
 
