@@ -17,11 +17,37 @@
 
 // Решение
 
-function postpone(start, end, delay){
-    // TODO
-}
+function postpone(start, end, delay) {
+    if (postpone.arguments.length !== 3) {
+        throw new Error('Function should take exactly 3 parameters');
+    } else if (typeof start !== 'number') {
+        throw new Error('First parameter should be a Number');
+    } else if (typeof end !== 'number') {
+        throw new Error('Second parameter should be a Number');
+    } else if (typeof delay !== 'number') {
+        throw new Error('Third parameter should be a Number');
+    }
+    let currentDelay = delay;
+    if (start < end) {
+        for (let i = start; i <= end; i++) {
 
-postpone(1, 3, 1000);
+            setTimeout(() =>
+                console.log(i), currentDelay);
+
+            currentDelay = currentDelay + delay;
+        }
+    } else if (start > end) {
+        for (let i = start; i >= end; i--) {
+            setTimeout(() =>
+                console.log(i), currentDelay);
+            currentDelay = currentDelay + delay;
+        }
+    }
+
+}
+// При вызове функции несколько раз происходит параллельное выполнение и значения выводятся с указанной задержкой
+// но одновременно: ... 1 3 ... 2 2 ... 3 1
+//postpone(1, 3, 1000);
 // 1
 // 2
 // 3
